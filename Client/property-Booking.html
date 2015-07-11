@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html  ng-app="PropertyBookingApp" > 
+  <head>
+		<meta charset="utf-8">
+		<title>Property Booking</title>
+		<meta name="description" content="">
+		 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+		<link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css" />
+		 <link rel="stylesheet" href="styles/Home/propertyBooking.css">
+		<link rel="stylesheet" href="styles/Home/banner.css">
+		 <link rel="stylesheet" href="styles/Home/footer.css">
+		
+        
+  </head>
+   <body class="page-sub-page" >
+
+    <div class="wrapper" 
+        <!-- Header -->
+            <div ng-include="'Banner-Header.html'"></div>
+        <!-- body -->
+     <div class="content">
+          <div id="page-content">
+                                <!-- Breadcrumb -->
+                                <div class="container">
+                                    <ol class="breadcrumb">
+                                        <li><a href="#">Home</a></li>
+                                      
+                                    </ol>
+                                </div>
+         
+         <div class="container" data-ng-controller="Mainctrl">
+                <div class="row">
+                    <div class="col-md-5">
+                         <h5>Client  Details</h5>
+
+                          <form name="userForm"  novalidate>
+             
+              <div class="form-group">
+                  <label for="Names">Client Names</label>
+                  <input type="text" class="form-control" placeholder="Client Names" id="Names" ng-model="booking.client.names" ng-disabled=disableComponents required/>
+              </div>
+              
+               <div class="form-group">
+                   <label for="cont">Identification/passport</label>
+                      <input type="text" class="form-control" placeholder="Identification/Passport" id="Names" ng-model="booking.client.id" ng-disabled=disableComponents required/>
+               </div>
+               <div class="form-group">
+                        <label for="contact">Contacts</label>
+                        <input type="email" name="Contact" class="form-control" ng-model="booking.client.contact" placeholder="Contact"  required/>
+                      
+               </div>
+
+               <div class="form-group">
+                        <label for="Email">Email</label>
+                        <input type="email" name="email" class="form-control" ng-model="booking.client.email" placeholder="Email" ng-disabled=disableComponents required/>
+                        <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block alert alert-danger">Enter a valid email.</p>
+               </div>
+             
+
+
+                                   </form>
+                                    <button class="btn btn-lg btn-warning" ng-click="bookProperty()">book Property</button>
+                                   </div>
+                                  
+
+                                 
+                                
+                    
+             
+                        <div class="col-md-4 col-md-offset-3">
+                                  <h5>Property  Details</h5>
+                                <aside>
+                                    <dl>
+                                      <dt>Type:</dt>
+                                      <dd>{{propertydetails.property.type}}</dd>
+                                      <dt>Status:</dt>
+                                      <dd>{{propertydetails.property.status}}</dd>
+                                      <dt>Size:</dt>
+                                      <dd>{{propertydetails.property.size}}<sup>2</sup></dd>
+                                      <dt>Beds:</dt>
+                                      <dd>{{propertydetails.property.UnitType.name}}</dd>  
+                                      <dt>Amount:</dt>
+                                      <dd>{{propertydetails.property.amount}}</dd>
+                                      <dt>Currency:</dt>
+                                      <dd>{{propertydetails.property.currency}}</dd> 
+                                      <dt>Contact name:</dt>
+                                      <dd>{{propertydetails.Owner.name}}</dd> 
+                                      <dt>Contact Phone:</dt>
+                                      <dd>{{propertydetails.Owner.phone}}</dd>                           
+                                    </dl>
+                                </aside>    
+                        </div>
+                </div>
+
+                    
+              </div>
+             
+           </div>
+
+     </div>
+       <!-- body End-->
+   </div>  <!-- wrapper-->
+       <!-- Footer -->
+            <div ng-include="'footer.html'"></div>
+         <!-- Content -->
+          
+         <script src="lib/jquery/dist/jquery.min.js"></script>
+        <script src="lib/angular/angular.js"></script>         
+        <script src="lib/bootstrap/dist/js/bootstrap.js"></script>  
+		<script src="scripts/Home/controller/propertyBooking.js"></script>
+       <!-- <script src="scripts/Home/js/custom.js"></script>   -->
+
+
+</body>
+</html>

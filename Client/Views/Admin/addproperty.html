@@ -1,0 +1,67 @@
+           <div class="panel panel-default">
+					<div class="panel-heading">
+					     <h4>Add Property </h4>
+				   </div>
+					   <div class="panel-body">
+                      		<form name="userForm"  novalidate>
+								<div class="col-md-5 col-sm-5">
+								   <label for="hsenum">Property Name</label>
+								   <input type="text" class="form-control" placeholder="Property Name" id="hsenum" name="hsenum" ng-model="property.name" ng-blur="CheckHseNoExists()"  ng-disabled=disableComponents required/>
+								    <label for="plot">property Type</label>
+							        <select class="form-control"  ng-model="property.type" id="plot" ng-options="c.name for c in type"  required/>    
+			                        </select>
+                                    
+								  <label for="contact">Contact Name</label>
+								    <input type="text" class="form-control" placeholder="Contact Name" id="contact" ng-model="property.contact.name"  required/>
+								   <label for="contactphone">Contact Phone</label>
+								   <input type="text" class="form-control" placeholder="Contact Phone" id="contactphone" ng-model="property.contact.phone"  required/>
+								     <label >Status</label>
+									<select class="form-control"  ng-model="property.status" ng-options="status.name for status in Rstatus"  required>
+									</select>
+
+									<label for="plotdesc">Description</label>
+									  <textarea class="form-control" rows="2" id="plotdesc" ng-model="property.description"  title="Brief Plot Description" required></textarea>	
+								
+							 </div>
+							  <div class="col-md-4 col-sm-4">
+                                                <section >
+                                                    <header class="section-title">
+                                                 
+                                                        <span ng-click="getAddress()" class="link-arrow geo-location pull-right">Get My Position</span>
+                                                    </header>
+                                                    <div class="form-group">
+                                                        <label for="address-map">Address</label>
+                                                        <input type="text" id="autocomplete" class="form-control" ng-model="LandlordPlot.address" ng-disabled=disableComponents placeholder="type Address" >
+                                                    </div><!-- /.form-group -->
+                                                    <label for="address-map">Or drag the marker to property position</label>
+                                                     <div style="width:330px;height:220px;" my-map="" lat="-1.2815735" lng="36.82233580000002"  locname="Nairobi" plotname="property.Plotname"></div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label >Location Latitude</label>
+											<input type="number" class="form-control" placeholder="Location Latitude" id="location" ng-model="property.location.latitude" readonly title="To Enable Map View">
+											
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label >Location Longitude</label>
+											<input type="number" class="form-control" placeholder="Location Longitude" id="location" ng-model="property.location.longitude" readonly title="To Enable Map View">
+                                                        </div>
+                                                    </div>
+                                                </section><!-- /#place-on-map -->
+                                            </div><!-- /.col-md-4 -->
+
+
+							   
+							   
+							</form>
+                    
+						
+                         </div>
+                         <div class="panel-footer">
+                          <a  type="button" class="btn btn-warning btn-lg" ng-click="addProperty()" >Save Property</a>
+                         </div>
+          
+                   
+					      
+					  							 
+		     </div>  
+

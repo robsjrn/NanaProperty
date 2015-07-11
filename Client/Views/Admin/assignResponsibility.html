@@ -1,0 +1,39 @@
+       <div class="panel panel-default">
+					<div class="panel-heading">
+					     <h4>Assign Roles and Responsibilities  </h4>
+				   </div>
+					   <div class="panel-body">
+                      		
+                      		 <form name="userForm"  novalidate>
+
+                      		      <div class="row" >
+                      		        <div class="col-md-6 col-sm-6">
+					                   <label for="uname">User names </label>
+							           <select class="form-control"  ng-model="user.names" id="uname" ng-options="emp.names for emp in employees"  required/>    
+			                           </select>
+
+			                            <label for="role">Roles</label>
+							           <select class="form-control"  ng-model="user.role" id="role" ng-options="c.name for c in roles"  required/>    
+			                          </select>
+
+
+			                         <label for="resp">Responsibility</label>
+							        <select class="form-control"  ng-model="user.responsibility" id="resp" ng-options="c.name for c in resp"  required/>    
+			                        </select>
+                                    </div>
+
+                                 </div>
+                               </form>
+          				      
+					  							 
+		             </div>  
+		             <div class="panel-footer">
+                      		
+                      		
+                         <button type="button" class="btn btn-warning btn-lg" ng-click="assignUser()"> Assign Users</button>
+                   
+					      
+					  							 
+		             </div> 
+
+                </div>

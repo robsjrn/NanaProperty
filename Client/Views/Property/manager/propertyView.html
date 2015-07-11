@@ -1,0 +1,50 @@
+      <div class="panel panel-default">
+          <div class="panel-heading">
+               <h4>Property Portfolio  </h4>
+               
+           </div>
+             <div class="panel-body">
+                          
+            <div class="row no-gutter vspace">
+                
+               <div class="col-xs-12">
+               <table class="table table-responsive table-striped table-hover">
+                <thead>
+                  <tr>
+                     <th>Property Name</th>
+                     <th>Type  </th>
+                      <th>Status </th>
+                      <th>Occupation Status </th>
+                      <th>Unit Id</th>
+                      <th>Unit Type</th>
+                      <th>Amount</th>
+                    <th></th>
+                   
+                    
+                  </tr>
+                </thead>
+                
+                <tbody>
+                  <tr ng-repeat="dataRec in data">
+                     <td>{{ dataRec.property.name }}</td>
+                    <td>{{ dataRec.property.type }}</td>
+                      <td>{{ dataRec.property.status }}</td>
+                       <td>{{ dataRec.occupationStatus }}</td>
+                    <td>{{ dataRec.property.Unitid }}</td>
+                     <td>{{ dataRec.property.UnitType.name }}</td>
+                      <td>{{ dataRec.property.amount }}</td>
+                    <td><a href="javascript:void(0)" ng-click="viewdetails(dataRec.traceid )">View details</a></td>
+                                       
+                                   
+                  </tr>
+                </tbody>
+              </table>
+              </div>
+            
+                         </div> 
+                        
+                           
+                 </div>  
+            
+
+                </div>

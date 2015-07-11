@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <title>Property Manager </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,app}) styles/main.css -->
+      <link rel="stylesheet" href="styles/Property/propertyManager.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="propertyManager">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+
+   <div class="container-fluid">
+             <header class="navbar navbar-inverse navbar-fixed-top" role="banner">
+              
+                  <div class="navbar-header">
+                       <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                      <a class="navbar-brand" href="#">
+                       <span class="glyphicon glyphicon-home"></span>
+                       <strong>Nana Property Manager</strong>
+                      </a>
+                 </div>
+                 <div data-ng-controller="Mainctrl">
+                    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+                      <ul class="nav navbar-nav navbar-right">
+                             
+                          <li class="dropdown">
+                        <a  data-toggle="dropdown" class="dropdown-toggle">
+                               <i class="fa fa-table"></i>  <i class="fa fa-caret-down"></i>
+                          </a>
+                                      <ul class="dropdown-menu">
+                                        <li role="presentation" class="dropdown-header">Tenant Report</li>
+                                            <li><a href="#!/TenantListReport">&nbsp All Tenats</a></li>
+                                        <li role="presentation" class="divider"></li>
+                                     <li role="presentation" class="dropdown-header">House Report</li>
+                                           <li><a href="#!/OccupiedHouseReport">&nbsp Occupied Units</a></li>
+                                         <li><a href="#!/VacantHouseReport">&nbsp Vacant Units</a></li>
+                                          <li><a href="#!/AllHouseReport">&nbsp All Units</a></li>
+                                                
+                                                    </ul>
+                   </li>   <!-- /.Report Drop down -->
+
+                        <li ><a href="#!/help"><i class="fa fa-question fa-fw"></i> Help</a></li>
+                        <li ><a href="#!/about">About</a></li>
+                        <li ><a href="#!/settings"><i class="fa fa-cogs fa-fw"></i> Settings</a></li>
+                        <li class="divider"></li>
+                        <li><a type="button"  ng-click="Logout()">Logout</a></li>
+                     </ul>
+                      </nav>
+             </div>
+          
+
+        </header>
+</div>
+<ul class="nav nav-tabs tab-bar">
+  <li ><a href="#!/portfolio"><i class="fa fa-home fa-fw"></i> Portfolio </a></li>
+   <li ><a href="#!/propertyView"><i class="fa fa-home fa-fw"></i> View Properties </a></li>
+    <li ><a href="#!/tenantList"><i class="fa fa-home fa-fw"></i> View Tenant </a></li>
+   <li ><a href="#!/tenantMngt"><i class="fa fa-home fa-fw"></i> Add Tenant </a></li>
+   <li ><a href="#!/tenantAccess"><i class="fa fa-home fa-fw"></i> Tenant Access </a></li>
+   <li ><a href="#!/check-in"><i class="fa fa-home fa-fw"></i> Check in </a></li>
+    <li ><a href="#!/check-out"><i class="fa fa-home fa-fw"></i> Check Out </a></li>
+     <li ><a href="#!/Documentmngt"><i class="fa fa-home fa-fw"></i> Documents </a></li>
+          <li ><a href="#!/Notice"><i class="fa fa-home fa-fw"></i> Send Notice  </a></li>
+           <li ><a href="#!/propertyView"><i class="fa fa-home fa-fw"></i> Configurations   </a></li>
+</ul>
+
+
+
+<div class="container" data-ng-view >
+      </div>
+
+ <div class="navbar navbar-default navbar-fixed-bottom">
+                 <div class="container" >
+                   <p>copyrights @NanaTec 2014 </p>                     
+          </div>
+
+     <!--[if lt IE 9]>
+    <script src="public/es5-shim/es5-shim.js"></script>
+    <script src="public/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <script src="lib/angular-resource/angular-resource.js"></script>
+    <script src="lib/textAngular/dist/textAngular.min.js"></script>
+  <script src="lib/textAngular/dist/textAngular-sanitize.min.js"></script>
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/Property/controller/propertyManager.js"></script>
+        <!-- endbuild -->
+</body>
+</html>

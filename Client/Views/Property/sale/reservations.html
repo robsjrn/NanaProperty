@@ -1,0 +1,50 @@
+
+
+  <div class="panel panel-default">
+          <div class="panel-heading">
+               <h4> List of Reserved Property </h4>
+           </div>
+             <div class="panel-body">
+                          
+            <div class="row no-gutter vspace">
+                
+               <div class="col-xs-12">
+               <table class="table table-responsive table-striped table-hover">
+                <thead>
+                  <tr>
+                     <th>Property Name</th>
+                     <th>Amount </th>
+                      <th>Unit Name </th>
+                      <th>Unit Type </th>
+                      <th>Client names </th>
+                      <th>Client Contact</th>
+                     
+                    <th></th>
+                    <th></th>
+                    
+                  </tr>
+                </thead>
+                
+                <tbody>
+                  <tr ng-repeat="request in data">
+                     <td>{{ request.property.name }}</td>
+                    <td>{{ request.property.amount }}</td>
+                      <td>{{ request.property.Unitid}}</td>
+                       <td>{{ request.property.UnitType.name }}</td>
+                    <td>{{ request.client.names}}</td>
+                    <td>{{ request.client.contact}}</td>
+              
+                      <td> <button type="button" class="btn btn-success btn-sm"  ng-click="ReservedRequirements(request,$index)">Check Requirementa</button></td>         
+                      <td> <button type="button" class="btn btn-warning btn-sm"  ng-click="GrantAccess(request,$index)">Reject Request</button></td>           
+                  </tr>
+                </tbody>
+              </table>
+              </div>
+            
+                         </div> 
+                        
+                           
+                 </div>  
+            
+
+                </div>

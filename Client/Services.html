@@ -1,0 +1,34 @@
+<!doctype html>
+<html ng-app="RentmngtAppServices" > 
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+   <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+	<link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="styles/Home/banner.css">
+    <link rel="stylesheet" href="styles/Services/Services.css">
+  </head>
+  <body >
+ <!-- Header -->
+		    <div ng-include="'Banner-Header.html'"></div>
+         <!-- Content -->
+		 <div class="container">
+		          <div>
+				  <a href="ServiceAccount.html" class="btn btn-md btn-warning"><span class="fa fa-sign-in"><span class="text"> Sign in</span></a>
+				  
+		           <div class="pull-right">
+						<a href="Services.html" class="btn btn-primary"><i class="fa fa-plus"></i><span class="text"> Register </span></a>
+					</div>
+					</div>
+        </div>
+
+      <!-- Footer -->
+		    <div ng-include="'footer.html'"></div>
+   <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="scripts/Services/controller/ServicesMngt.js"></script>
+</body>
+</html>

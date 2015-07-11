@@ -1,0 +1,60 @@
+
+
+
+
+
+
+
+      <div class="panel panel-default">
+          <div class="panel-heading">
+               <h4>Tenant List </h4>
+           </div>
+             <div class="panel-body">
+                          
+            <div class="row no-gutter vspace">
+                
+               <div class="col-xs-12">
+               <table class="table table-responsive table-striped table-hover">
+                <thead>
+                  <tr>
+                     <th>Names</th>
+                     <th>id </th>
+                      <th>House name </th>
+                      <th>Contact </th>
+                      <th>Email</th>
+                     
+                    <th></th>
+                    
+                  </tr>
+                </thead>
+                
+                <tbody>
+                  <tr ng-repeat="request in users">
+                     <td>{{ request.names }}</td>
+                    <td>{{ request._id }}</td>
+                      <td>{{ request.housename}}</td>
+                       <td>{{ request.contact }}</td>
+                    <td>{{ request.email}}</td>
+            
+              
+                      <td> <button type="button" class="btn btn-success btn-sm"  ng-click="GrantAccess(request,$index)">Grant Access</button></td>                 
+                  </tr>
+                </tbody>
+              </table>
+              </div>
+            
+                         </div> 
+                        
+                           
+                 </div>  
+            
+
+                </div>
+
+
+
+
+ <div ng-show="AccessGranted" class="alert alert-success"><strong>{{msg}} !!!</strong> User Access Successfully Granted</div>
+ <div ng-show="Acesserror" class="alert alert-warning"><strong>Error Occurred !!!</strong> {{msg}}</div>
+
+

@@ -1,0 +1,45 @@
+ <div class="panel panel-default">
+					<div class="panel-heading">
+					     <a href="#!/addUser" type="button" class="btn btn-info btn-lg"  >Add Users</a>
+				   </div>
+					   <div class="panel-body">
+                      		
+                      		<div class="row no-gutter vspace">
+						    
+							 <div class="col-xs-12">
+							 <table class="table table-responsive table-striped table-hover">
+								<thead>
+									<tr>
+									   <th>Rec</th>
+									    <th>User Name</th>
+									    <th>Identification</th>
+									    <th>Department</th>
+										<th>Employee ID</th>
+										<th></th>
+										<th></th>
+										
+										
+									</tr>
+								</thead>
+								
+								<tbody>
+									<tr ng-repeat="dataRec in users">
+									   <td>{{ $index + 1 }}</td>
+										<td>{{ dataRec.names }}</td>
+										<td>{{ dataRec.id }}</td>
+										<td>{{ dataRec.department}}</td>
+										<td>{{ dataRec.empid }}</td>
+										<th><a href="javascript:void(0)" ng-click="edit(dataRec.traceid )">details</a></th>
+										<td> <a href="javascript:void(0)" ng-click="edit(dataRec.traceid )">edit</a> | <a href="javascript:void(0)" ng-click="delete($index)">delete</a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							</div>
+						
+                         </div>
+          
+                   
+					      
+					  							 
+		     </div>  

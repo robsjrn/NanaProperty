@@ -1,0 +1,84 @@
+           <h4>Upload Property Photos</h4>
+		   <button type="button " class="btn btn-success" ng-click="Add()" ng-disabled=!disableComponents>Add</button>
+		 
+			<hr>
+			
+			<div class="row">
+			 <div class="col-xs-3">
+		    	<div class="form-group">
+                   <label >Property</label>
+					<select class="form-control"  ng-model="Props.name" ng-options="servicetype for servicetype in Ownproperty" ng-disabled=disableComponents  >
+					</select>
+			   </div>
+             </div>
+				
+				
+                <div class="col-xs-3"> 
+				   <div class="form-group">
+				  <label class="control-label">View Name</label>
+				  <input type="text" placeholder="View Name"  class="form-control" ng-model="Props.viewName" ng-disabled=disableComponents >
+	               </div>
+               </div>
+
+				<div class="col-xs-3"> 
+				<div class="form-group">
+				 <label>Photo Description</label>
+				<textarea class="form-control" placeholder="Photo Description"  rows="1" id="desc" ng-model="Props.PhotoDescription" ng-disabled=disableComponents >
+				</textarea>
+				</div>
+                </div>
+
+				  <div class="col-xs-3" >
+				  <div class="form-group">
+				  <label>Select Photo</label>
+				  <input type="file"  ng-file-select="onFileSelect($files)" ng-disabled=disableComponents />
+				  </div>
+                 </div>
+			</div>
+            <br>
+			  <button type="button " class="btn btn-danger" ng-click="addData()" ng-disabled=disableComponents>Save</button>
+			<br>				 
+			<h5>Preview</h5>	
+			<hr>
+			 <table class="table table-hover table-bordered table-striped table-condensed table-responsive" >
+				<thead>
+				<tr>
+				  <th>#</th>
+				  <th>For</th>
+				  <th>Name</th>
+				  <th>Description</th>
+				  <th>Photo Preview</th>
+				  <th></th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr ng-repeat="prop in Details">
+				<td>{{$index+1}}</td>
+				<td>{{prop.name}}</td>
+				<td>{{prop.view}}</td>
+				<td>{{prop.Description}}</td>
+				<td>  
+				   <div ng-hide="!imageSrc"  >
+					 <img class="img-thumbnail"  ng-src="{{imageSrc[$index]}}" width="82" height="82" />
+				   </div>
+				  </td>
+				  <td>
+				  <button type="button " class="btn btn-danger" ng-click="removeData(prop.traceid)">Remove</button>
+				  <button type="button " class="btn btn-warning" ng-click="EditData(prop.traceid)">Edit</button>
+				  </td>
+				  
+				</tr>
+			   </tbody>
+			  </table>
+				<hr>						
+							 
+			<button type="button " class="btn btn-danger" ng-click="UploadPhoto()" ng-disabled=!disableComponents>Upload</button>
+							 
+										
+      
+	   <hr>
+
+	    <div ng-show="PhotoPosted" class="alert alert-warning"><strong>Photo(s) Successfully Uploaded</strong> </div>
+	    <div ng-show="PhotoError" class="alert alert-warning"><strong>Error Occurred</strong> {{msg}} </div> 
+ 
+

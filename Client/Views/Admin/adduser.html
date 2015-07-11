@@ -1,0 +1,51 @@
+       <div class="panel panel-default">
+					<div class="panel-heading">
+					     <h4>Add User </h4>
+				   </div>
+					   <div class="panel-body">
+                      		
+                      		 <form name="userForm"  novalidate>
+
+                      		      <div class="row" >
+					                   <div class="col-md-6 col-sm-6" >
+					                    <label for="unames">Names</label>
+						                <input type="text" class="form-control" placeholder="Names" id="unames" ng-model="user.names"  required>
+						                 <label for="uid">ID</label>
+						                 <input type="text" class="form-control" placeholder="Identification" id="uid" ng-model="user.id"  required>
+						                  <label for="dept">Department</label>
+						                 <input type="text" class="form-control" placeholder="Department" id="dept" ng-model="user.department"  required>
+                                          <label for="empid">Employee Id</label>
+						                 <input type="text" class="form-control" placeholder="Employee Id" id="empid" ng-model="user.empid"  required>
+						                   <label for="email">Email</label>
+						                 <input type="text" class="form-control" placeholder="Email" id="email" ng-model="user.email"  required>
+						                  <label for="contact">Contact</label>
+						                 <input type="text" class="form-control" placeholder="Contact" id="contact" ng-model="user.contact"  required>
+
+					                   </div>
+					                    <div class="col-md-6 col-sm-6" >
+                                         <h5>Login details</h5>
+                                          <label for="lnames">username</label>
+						                  <input type="text" class="form-control" placeholder="User Names" id="lnames" ng-model="user.username"  required>
+						                  <label for="pwd">Password</label>
+						                  <input type="password" class="form-control" placeholder="Password" id="pwd" ng-model="user.password"  required>
+                                          <label for="pwd">Confirm Password</label>
+						                  <input type="password" class="form-control" placeholder="Confirm Password" id="pwd" ng-model="user.cpwd"  required>
+
+					                   </div>
+                                 </div>
+                               </form>
+          
+                   
+					      
+					  							 
+		             </div>  
+		             <div class="panel-footer">
+                      		
+                      		
+                         <button type="button" class="btn btn-warning btn-lg" ng-click="createUser()"> Save Users</button>
+                   
+					      
+					  							 
+		             </div> 
+
+                </div>

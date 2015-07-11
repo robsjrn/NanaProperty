@@ -1,0 +1,407 @@
+<!doctype html>
+
+<html  ng-app="propertymngtApp"> 
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+	<link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css" />
+	
+    <link rel="stylesheet" href="styles/Home/banner.css">
+     <link rel="stylesheet" href="styles/Home/footer.css">
+	 	<link rel="stylesheet" href="styles/Home/submitproperty.css">
+
+		
+
+	 <title>NanaTec | Add Your Property</title>
+
+ </head>
+         <body class="page-sub-page page-submit" id="page-top">
+
+		  <!-- Wrapper -->
+             <div class="wrapper">
+                 <!-- Header -->
+				
+						<div ng-include="'Banner-Header.html'"></div>
+					
+		               <!--End of Header -->
+
+                          <!-- Content -->
+
+                          <div class="content" data-ng-controller="submitProperty">
+                               <div ng-cloak ng-class="{'notification': !shownotification,'closenotification': shownotification}">
+									{{msg}} 
+								</div>
+
+						       <div  ng-class="{'modalloading': loading, 'loaded': loading}">
+                                  <img ng-class="{'imgloader': loading, 'imgloader': !loading}" src="/images/assets/loading.gif" />
+                               </div>
+
+
+                               <div id="page-content"  ng-class="{'fadeloading': loading, 'loaded': !loading}">   <!-- page Content -->
+
+			                       <div class="container">
+									<ol class="breadcrumb">
+										<li><a href="#">Home</a></li>
+										<li class="active">Add your property</li>
+									</ol>
+
+                                        <div class="row">  <!-- row 1 -->
+
+										    <div class="col-sm-4 col-sm-push-8">
+										    <aside class="submit-step">
+												<figure class="step-number">1</figure>
+												<div class="description">
+													<h4>Enter Information About Yourself</h4>
+													<p>Type information about your property. Be descriptive.
+													</p>
+												</div>
+											</aside>
+										   </div>
+
+
+
+										   <div class="col-sm-8 col-sm-pull-4">
+										   <header><h4>Your Information Information</h4></header>
+										      <div class="row">
+											    <div class="col-md-6">
+                                                <div class="form-group">
+														<i class="fa fa-user-plus"></i>
+														<input type="text" id="name" class="form-control" ng-model="property.owner.names" placeholder="Names" />
+														</div>
+                                                    </div>
+													<div class="col-md-6 ">
+                                                  <div class="form-group">
+													<i class="fa fa-phone"></i>
+														<input type="text" id="name" class="form-control" ng-model="property.owner.contact" placeholder="Contacts" />
+												</div>
+												</div>
+                                              </div>  
+										   </div>
+                                        
+										 
+
+										</div>  <!--row one -->
+                            
+										 <div class="row">   <!--row 2  basic Information -->
+
+                                         <div class="col-sm-4 col-sm-push-8">
+										    <aside class="submit-step">
+												<figure class="step-number">2</figure>
+												<div class="description">
+													<h4>Basic Property Information</h4>
+													<p>Type information about your property. Be descriptive.
+													</p>
+												</div>
+											</aside>
+										   </div>
+
+
+										   <div class="col-sm-8 col-sm-pull-4">
+                                          <header><h4>Basic Information</h4></header>
+
+                                              <div class="row">
+											    <div class="col-md-6">
+                                                <div class="form-group">
+												    <i class="fa fa-building"></i>
+														<input type="text" id="name" class="form-control" ng-model="property.name" placeholder="Property name" />
+														</div>
+                                                    </div>
+													<div class="col-md-6">
+												     <div class="col-md-8">
+													        <div class="form-group">
+															  <i class="fa fa-money"></i>
+																	<input type="text" id="name" class="form-control" ng-model="property.price" placeholder="Price" />
+															</div>
+													 </div>
+                                                   <div class="col-md-4">
+													        <div class="form-group">
+															  <i class="fa fa-currency"></i>
+																	<input type="text" id="name" class="form-control" ng-model="property.curency" placeholder="Currency" />
+															</div>
+													 </div>
+
+
+
+												</div>
+
+                                                   <div class="row">
+                                                          <div class="col-md-12">
+														    <div class="su-txt">
+															<i class="fa fa-pencil"></i>
+															 <textarea  class="materialize-textarea" ng-model="property.description" length="250" placeholder="Description"></textarea>
+															 </div>
+														  </div>
+												   </div>
+                                                    
+
+                                              </div>  
+
+										 <div class="row">
+                                        <div class="block clearfix">
+                                            <div class="col-md-6 col-sm-6">
+                                                <section id="summary">
+                                                    <header><h4>Summary</h4></header>
+                                                    <div class="form-group">
+                                                        <label for="submit-location">Location</label>
+
+														<select ng-model="property.locality">
+											<option value="" >Choose your option</option>
+																		  <option value="1">Nairobi</option>
+																		  <option value="2">Kisumu</option>
+																		  <option value="3">Nakuru</option>
+																		</select>
+			
+                                                     </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-sm-6">
+                                                            <div class="form-group">
+                                                                <label for="submit-property-type">Property Type</label>
+                                                                <select ng-model="property.type" name="type" id="submit-property-type">
+                                                                    <option value="apartment">Apartment</option>
+                                                                    <option value="condominium">Condominium</option>
+                                                                    <option value="cottage">Cottage</option>
+                                                                    <option value="flat">Flat</option>
+                                                                    <option value="house">House</option>
+																	<option value="business">Business</option>
+                                                                </select>
+                                                            </div><!-- /.form-group -->
+
+														
+                                                        </div><!-- /.col-md-6 -->
+                                                        <div class="col-md-6 col-sm-6">
+                                                            <div class="form-group">
+                                                                <label for="submit-status">Status</label>
+                                                                <select ng-model="property.status" name="type" id="submit-status">
+                                                                    <option value="sale">Sale</option>
+                                                                    <option value="rent">Rent</option>
+                                                                </select>
+                                                            </div><!-- /.form-group -->
+                                                        </div><!-- /.col-md-6 -->
+                                                    </div><!-- /.row -->
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-sm-6">
+                                                            <div class="form-group">
+                                                                <label for="submit-Beds">Beds</label>
+                                                                <input ng-model="property.beds" type="text" class="form-control" id="submit-Beds" name="Beds" pattern="\d*" required>
+                                                            </div><!-- /.form-group -->
+                                                        </div><!-- /.col-md-6 -->
+                                                        <div class="col-md-6 col-sm-6">
+                                                            <div class="form-group">
+                                                                <label for="submit-Baths">Baths</label>
+                                                                <input ng-model="property.baths" type="text" class="form-control" id="submit-Baths" name="Baths" pattern="\d*" required>
+                                                            </div><!-- /.form-group -->
+                                                        </div><!-- /.col-md-6 -->
+                                                    </div><!-- /.row -->
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-sm-6">
+                                                            <div class="form-group">
+                                                                <label for="submit-area">Size</label>
+                                                                <div class="input-group">
+                                                                    <input type="text" 	ng-model="property.size" class="form-control" id="submit-area" name="area" pattern="\d*" required>
+                                                                    <span class="input-group-addon">m<sup>2</sup></span>
+                                                                </div>
+                                                            </div><!-- /.form-group -->
+                                                        </div><!-- /.col-md-6 -->
+                                                        <div class="col-md-6 col-sm-6">
+                                                            <div class="form-group">
+                                                                <label for="submit-garages">Reference No.</label>
+                                                                <input type="text" class="form-control" ng-model="property.refnum" id="submit-garages" name="ref"  required>
+                                                            </div><!-- /.form-group -->
+                                                        </div><!-- /.col-md-6 -->
+                                                    </div><!-- /.row -->
+                                                   
+                                                </section><!-- /#summary -->
+                                            </div><!-- /.col-md-6 -->
+                                            <div class="col-md-6 col-sm-6">
+                                                <section >
+                                                    <header class="section-title">
+                                                 
+                                                        <span ng-click="getAddress()" class="link-arrow geo-location pull-right">Get My Position</span>
+                                                    </header>
+                                                    <div class="form-group">
+                                                        <label for="address-map">Address</label>
+                                                        <input type="text" id="autocomplete" class="form-control" ng-model="property.address" ng-disabled=disableComponents placeholder="type Address" >
+                                                    </div><!-- /.form-group -->
+                                                    <label for="address-map">Or drag the marker to property position</label>
+                                                     <div class="mapstyle" my-map="" lat="-1.2815735" lng="36.82233580000002"  locname="Nairobi" >
+													 </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label >Location Latitude</label>
+											<input type="number" class="form-control" placeholder="Location Latitude" id="location" ng-model="property.location.latitude" readonly title="To Enable Map View">
+											
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label >Location Longitude</label>
+											<input type="number" class="form-control" placeholder="Location Longitude" id="location" ng-model="property.location.longitude" readonly title="To Enable Map View">
+                                                        </div>
+                                                    </div>
+                                                </section><!-- /#place-on-map -->
+                                            </div><!-- /.col-md-6 -->
+                                        </div><!-- /.block -->
+                                    </div><!-- /.row -->
+                                </section>
+
+                             
+
+										   </div>
+
+										 
+										</div>
+
+                                        <div class="row">
+
+                                      <div class="col-sm-4 col-sm-push-8">
+										    <aside class="submit-step">
+												<figure class="step-number">3</figure>
+												<div class="description">
+													<h4>Images</h4>
+													<p>Upload your Property Images
+													</p>
+												</div>
+											</aside>
+										   </div>
+
+
+										   <div class="col-sm-8 col-sm-pull-4">
+                                               <section class="block" id="gallery">
+                                    <header><h2>Gallery</h2></header>
+                                    <div class="center">
+                                        <div class="file-input">
+										  <div class="fileUpload btn btn-primary">
+										      <span>Upload</span>
+                                            <input id="file-upload" type="file" class="upload"  file-model="myFile"/>
+                                           </div>
+                                        </div>
+										 
+										 <figure class="note"><strong>Hint:</strong> Choose the Best Photo of Your Property!</figure>
+                                    </div>
+
+									 
+
+                                       
+
+										<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg" ng-disabled="btndis" >Preview Image</button>
+
+										<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="Property Image" aria-hidden="true">
+										  <div class="modal-dialog modal-lg">
+											<div class="modal-content">
+											  <img class="img-responsive img-thumbnail" ng-src="{{imageSrc}}" />
+											</div>
+										  </div>
+										</div>
+
+                                </section>
+										   </div>
+
+										  
+
+										</div>   <!-- row 3 -->
+                                 <div class="row">
+
+                                    <div class="col-sm-4 col-sm-push-8">
+                                       <aside class="submit-step">
+												<figure class="step-number">4</figure>
+												<div class="description">
+													<h4>Property Features</h4>
+													<p>Select the Features of Your Property
+													</p>
+												</div>
+											</aside>
+								   
+								 </div>
+
+                                 <div class="col-sm-8 col-sm-pull-4">
+
+								         <section id="property-features" class="block">
+                                    <section>
+                                        <header><h2>Property Features</h2></header>
+                                        <ul class="submit-features">
+                                            <li><div class="checkbox"><label><input ng-model="property.features.aircondition" type="checkbox">Air conditioning</label></div></li>
+                                            <li><div class="checkbox"><label><input type="checkbox" ng-model="property.features.bedding" >Bedding</label></div></li>
+                                            <li><div class="checkbox"><label><input type="checkbox" ng-model="property.features.heating" >Heating</label></div></li>
+                                            <li><div class="checkbox"><label><input type="checkbox" ng-model="property.features.internet" >Internet</label></div></li>
+                                            <li><div class="checkbox"><label><input type="checkbox" ng-model="property.features.microwave" >Microwave</label></div></li>
+                                            <li><div class="checkbox"><label><input ng-model="property.features.smoking" type="checkbox">Smoking allowed</label></div></li>
+                                            <li><div class="checkbox"><label><input type="checkbox" ng-model="property.features.pool" >Use of pool</label></div></li>
+                                            <li><div class="checkbox"><label><input type="checkbox" ng-model="property.features.toaster" >Toaster</label></div></li>
+                                            <li><div class="checkbox"><label><input type="checkbox" ng-model="property.features.coffeepot">Coffee pot</label></div></li>
+                                            <li><div class="checkbox"><label><input type="checkbox" ng-model="property.features.cabletv">Cable TV</label></div></li>
+                                            <li><div class="checkbox"><label><input type="checkbox" ng-model="property.features.Parquet">Parquet</label></div></li>
+                                            <li><div class="checkbox"><label><input type="checkbox" ng-model="property.features.roofTerrace" >Roof terrace</label></div></li>
+                                            <li><div class="checkbox"><label><input type="checkbox" ng-model="property.features.Terrace">Terrace</label></div></li>
+                                            <li><div class="checkbox"><label><input type="checkbox" ng-model="property.features.Balcony">Balcony</label></div></li>
+                                            <li><div class="checkbox"><label><input type="checkbox" ng-model="property.features.Iron">Iron</label></div></li>
+                                            <li><div class="checkbox"><label><input type="checkbox" ng-model="property.features.Wifi">Wi-Fi</label></div></li>
+                                            <li><div class="checkbox"><label><input type="checkbox" ng-model="property.features.Beach" >Beach</label></div></li>
+                                            <li><div class="checkbox"><label><input type="checkbox" ng-model="property.features.Garage">Garage</label></div></li>
+                                        </ul>
+                                    </section>
+                                </section>
+                                
+
+
+								 </div>
+
+								
+
+								 </div>
+
+
+
+
+
+										<div class="row">
+                                         <div class="col-sm-4 col-sm-push-8">
+													<aside class="submit-step">
+														<figure class="step-number">5</figure>
+														<div class="description">
+															<h4>Review Information </h4>
+															<p>Carefully check entered information and then click "Save Information " to submit them.
+															</p>
+														</div>
+													</aside><!-- /.submit-step -->
+												</div><!-- /.col-md-3 -->
+
+											<div class="block">
+												<div class="col-sm-8 col-sm-pull-4">
+													<div class="center">
+														<div class="form-group">
+															<button type="submit" class="btn btn-default large" ng-click="saveInformation()">Save Information</button>
+														</div><!-- /.form-group -->
+														<figure class="note block">By clicking the 'Save Information' button you agree with our <a href="Terms.html">Terms and conditions</a></figure>
+													</div>
+												</div>
+												
+											</div>
+										</div>
+
+
+
+
+								</div>
+
+                                 </div>          <!-- page Content -->
+						  </div>
+						  <!-- Content  -->
+
+			 </div>   <!-- Wrapper -->
+
+			           <!-- Footer -->
+						<div ng-include="'footer.html'"></div>
+		               <!--Footer -->
+
+	    <script src="lib/jquery/dist/jquery.min.js"></script>
+        <script src="lib/angular/angular.js"></script>         
+        <script src="lib/bootstrap/dist/js/bootstrap.js"></script>  
+        <script src="scripts/Home/controller/submitproperty.js"></script>
+ 
+     
+
+
+
+</body>
+</html>
