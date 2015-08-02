@@ -19,7 +19,7 @@
       <link rel="stylesheet" href="styles/Admin/propertyAdmin.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="propertyAdmin">
+  <body ng-app="propertyFinance">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -44,6 +44,7 @@
                  <div data-ng-controller="Mainctrl">
                     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
                       <ul class="nav navbar-nav navbar-right">
+                        <li ><a href="#!/help"><i class="fa fa-question fa-fw"></i> Profile</a></li>
                         <li ><a href="#!/help"><i class="fa fa-question fa-fw"></i> Help</a></li>
                         <li ><a href="#!/about">About</a></li>
                         <li ><a href="#!/settings"><i class="fa fa-cogs fa-fw"></i> Settings</a></li>
@@ -57,8 +58,10 @@
         </header>
 </div>
 <ul class="nav nav-tabs tab-bar">
-  <li ><a href="#!/propertyRegistration"><i class="fa fa-home fa-fw"></i> Payments</a></li>
-  
+    <li ><a href="#!/payment"><i class="fa fa-home fa-fw"></i> Payments</a></li>
+    <li ><a href="#!/batchPayment"><i class="fa fa-home fa-fw"></i> Batch Payments</a></li>
+    <li ><a href="#!/viewPayment"><i class="fa fa-home fa-fw"></i> View Payments</a></li>
+    <li ><a href="#!/Reports"><i class="fa fa-home fa-fw"></i> View Reports</a></li>
 </ul>
 
 
@@ -86,7 +89,8 @@
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/Admin/controller/propertyAdmin.js"></script>
+        <script src="scripts/Property/controller/propertyFinance.js"></script>
+         <script src="scripts/shared/notification.js"></script>
         <!-- endbuild -->
 </body>
 </html>
