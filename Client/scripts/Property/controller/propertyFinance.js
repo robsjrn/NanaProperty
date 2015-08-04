@@ -1,6 +1,6 @@
 'use strict';
 
-var Financemngt= angular.module('propertyFinance', ['ngRoute','notifications'] ); 
+var Financemngt= angular.module('propertyFinance', ['ngRoute'] ); 
 
    	Financemngt.factory('authInterceptor', function ($rootScope, $q, $window) {
 		  return {
@@ -53,7 +53,62 @@ $locationProvider.hashPrefix("!");
 Financemngt.controller('Mainctrl', function ($scope,$window) {
 
 	});
-Financemngt.controller('paymentctrl', function ($scope,$window,$notification) {
+Financemngt.controller('paymentctrl', function ($scope,$window) {
 
-           $notification.info('test', 'content', 'userData', 60);
+         
 	});
+Financemngt.service('SettingService', function () {
+    var settings = [];
+    this.set = function (settings) {
+         
+		   settings.push(settings);
+
+    }
+
+    this.get = function (settings) {
+         
+		   return settings;
+
+    }
+
+	});
+
+ Financemngt.service('BatchTrxnService', function () {
+
+    var data = [];
+       var uid = 0;
+          var i;
+    this.save = function (user) {
+           user.traceid=uid++;
+		   data.push(user);
+
+    }
+
+
+    this.get = function (id) {
+        for (i in data) {
+            if (data[i].traceid == id) {	
+                return data[i];
+            }
+        }
+
+    }
+    
+    //iterate through contacts list and delete 
+    //contact if found
+    this.delete = function (id) {
+        for (i in data) {
+            if (data[i].traceid == id) {
+				var dt=data[i];
+                data.splice(i, 1);
+				return dt;
+            }
+        }
+    }
+    this.Drop=function(){
+         data.length = 0;
+       }
+    this.list = function () {
+        return data;
+    }
+});
