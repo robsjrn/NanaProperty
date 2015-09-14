@@ -1,0 +1,60 @@
+
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a data-target="#home" aria-controls="home" role="tab" data-toggle="tab">Add</a></li>
+    <li role="presentation"><a data-target="#profile" aria-controls="profile" role="tab" data-toggle="tab">Edit</a></li>
+    <li role="presentation"><a data-target="#messages" aria-controls="messages" role="tab" data-toggle="tab">Delete</a></li>
+    
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			   
+			    <button class="btn btn-primary">Add</button>
+			    
+			  </div>
+			  <div class="panel-body">
+			     <div class="row">
+			    	   <div class="col-md-6">
+				             <input type="text" class="form-control" ng-model="stage.name" placeholder="Stage Name"/>
+						</div>
+						<div class="col-md-6">
+			                   <button class="btn btn-danger" ng-click="addfield()">Add Requirements </button>
+			 			</div>
+			       </div>
+			   
+			      <div class="row">
+			      <div class="col-md-12">
+			        <h5><b>{{stage.name}} Requirements</b></h5>
+			        <hr>
+                          <div ng-repeat="item in inputs">
+					       <input ng-model="item.value" placeholder="Requirement Name" />
+					       <label><input type="radio" ng-model="item.option" value="Yes"> Mandatory</label>
+					       <label><input type="radio" ng-model="item.option" value="No"> Not Mandatory</label>
+
+					            </div>
+
+                   </div>
+			      </div> 
+			  </div>
+			  <div class="panel-footer">
+			  <button class="btn btn-warning" ng-click="savedetails()">Save</button>
+			  </div>
+                 <pre>{{design}}</pre>
+
+			</div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="profile">...</div>
+    <div role="tabpanel" class="tab-pane" id="messages">...</div>
+    <div role="tabpanel" class="tab-pane" id="settings">...</div>
+  </div>
+
+</div>
+
+
+    
+
+
+

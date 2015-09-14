@@ -1,6 +1,6 @@
 'use strict';
 
-var Salemngt= angular.module('propertySale', ['ngRoute'] ); 
+var Salemngt= angular.module('propertySale', ['ui.router'] ); 
 
    	Salemngt.factory('authInterceptor', function ($rootScope, $q, $window) {
 		  return {
@@ -29,36 +29,47 @@ Salemngt.config(function ($httpProvider) {
   $httpProvider.interceptors.push('authInterceptor');
 });
 
-
-
-Salemngt.config(function($routeProvider,$locationProvider)	{
-
-$locationProvider.hashPrefix("!");
-
-  $routeProvider
-	 
- .when('/schedule', {
-     templateUrl: 'views/Property/sale/schedule.html',   
-      controller: 'schedulectrl'
+Salemngt.config(function($stateProvider, $urlRouterProvider) {
+  $urlRouterProvider.otherwise("/schedule");
+       $stateProvider
+        .state('settings', {
+          url: "/settings",
+          controller: 'settingsctrl',
+          templateUrl: "views/Property/sale/settings.html"
+          })
+          .state('settings.pipelinesetting', {
+            url: "/pipelinesetting",
+            controller: 'pipelinesettingctrl',
+            templateUrl: "views/Property/sale/settingspartials/settings.html"
+          })
+          .state('settings.pipelinedesign', {
+            url: "/design",
+            controller: 'settingDesignsctrl',
+            templateUrl: "views/Property/sale/settingspartials/design.html"
+          })
+       .state('schedule', {
+          url: "/schedule",
+          controller: 'schedulectrl',
+          templateUrl: "views/Property/sale/schedule.html"
         })
-  .when('/booking', {
-     templateUrl: 'views/Property/sale/booking.html',   
-      controller: 'bookingctrl'
-        }) 
-   .when('/reservations', {
-     templateUrl: 'views/Property/sale/reservations.html',   
-      controller: 'reservationsctrl'
-        }) 
-  .when('/reservationsRequirements/:details', {
-     templateUrl: 'views/Property/sale/reservationsRequirements.html',   
-      controller: 'reservationsRequirementsctrl'
+       .state('booking', {
+          url: "/booking",
+          controller: 'bookingctrl',
+          templateUrl: "views/Property/sale/booking.html"
         })
-
-	.otherwise({
-         redirectTo: '/schedule'
-      });
-
+       .state('reservations', {
+          url: "/reservations",
+          controller: 'reservationsctrl',
+          templateUrl: "views/Property/sale/reservations.html"
+        })
+       .state('reservationsRequirements/:details', {
+          url: "//reservationsRequirements/:details",
+          controller: 'reservationsRequirementsctrl',
+          templateUrl: "views/Property/sale/reservationsRequirements.html"
+        })
 });
+
+
 
 Salemngt.controller('Mainctrl', function ($scope,saleFactory) {
 
@@ -83,6 +94,75 @@ Salemngt.controller('schedulectrl', function ($scope,saleFactory) {
    
 
 });
+
+Salemngt.controller('pipelinesettingctrl', function ($scope,saleFactory,SalesService) {
+     $scope.positions=SalesService.getPositions();
+     $scope.stages =SalesService.getDesign();
+     var settings=[];
+   $scope.saveData=function(id,tid){
+            $scope.positions= SalesService.deletePositon(id);
+            $scope.stages=SalesService.removeStage(tid);
+            settings.push($scope.data);
+            $scope.settings=settings;
+   }
+
+});
+Salemngt.service('SalesService', function () {
+    var design=[] ;
+    var uid = 0;
+          var i;
+    var positions =[{"id":1,"name":"One"},{"id":2,"name":"Two"}
+    ,{"id":3,"name":"Three"},{"id":4,"name":"Four"},{"id":5,"name":"Five"}
+   ];
+   this.saveDesign = function (det) {
+          det.traceid=uid++;
+          design.push(det);
+    }
+    this.getDesign = function () {
+      return design;
+    }
+    this.getPositions=function(){
+      return positions;
+    }
+    this.deletePositon = function (id) {
+        for (i in positions) {
+            if (positions[i].id == id) {
+        
+                positions.splice(i, 1);
+        return positions;
+            }
+        }
+    }
+    this.removeStage = function (name) {
+        for (i in design) {
+            if (design[i].stagename == name) {
+                design.splice(i, 1);
+        return design;
+            }
+        }
+    }
+});
+
+Salemngt.controller('settingDesignsctrl', function ($scope,saleFactory,SalesService) {
+
+    $scope.inputs = [];
+    $scope.design={};
+    $scope.addfield = function () {
+        $scope.inputs.push({})
+    }
+    $scope.getValue = function (item) {
+        alert(item.value)
+    }
+    $scope.savedetails=function(){
+           $scope.design.stagename=$scope.stage.name;
+           $scope.design.requirements=$scope.inputs;
+
+           SalesService.saveDesign($scope.design);
+
+    }
+
+});
+
 Salemngt.controller('reservationsRequirementsctrl', function ($scope,saleFactory,$route) {
 $scope.propertydetails=angular.fromJson(atob($route.current.params.details));
 console.log($scope.propertydetails);
@@ -137,6 +217,8 @@ Salemngt.controller('reservationsctrl', function ($scope,saleFactory,$location) 
 });
 
 
+Salemngt.controller('settingsctrl', function ($scope,saleFactory) {
+  });
 
 Salemngt.controller('bookingctrl', function ($scope,saleFactory) {
 

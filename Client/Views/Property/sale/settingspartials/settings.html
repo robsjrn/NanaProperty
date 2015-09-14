@@ -1,0 +1,33 @@
+
+
+<div class="panel panel-default">
+	 <div class="panel-heading">
+	 <h4>Settings	</h4>		    
+	</div>
+	 <div class="panel-body">
+	    <div class="col-md-4">
+              <label for="singleSelect">Select a Stage </label><br>
+			    <select name="stageSelect" ng-model="data.stage">
+			      <option value="">---Please select---</option>  
+			      <option ng-repeat="option in stages" value="{{option.stagename}}">{{option.stagename}}</option>
+			    </select>
+
+	    </div>
+
+	     <div class="col-md-4">
+              <label for="singleSelect"> Select Stage Position: </label><br>
+			    <select name="positionSelect" ng-model="data.position">
+			      <option value="">---Please select---</option>  
+			      <option ng-repeat="pos in positions" value="{{pos.id}}">{{pos.name}}</option>
+			    </select>
+
+	    </div>
+
+	    <div class="col-md-4">
+	    <br/>
+	       <button class="btn btn-warning btn-lg" ng-click="saveData(data.position,data.stage)"> Save </button>
+	    </div>
+	 </div>
+
+	 <pre>{{settings}}</pre>
+</div>

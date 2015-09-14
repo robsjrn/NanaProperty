@@ -2358,7 +2358,8 @@ var det={
          "AccessStatus" : 1,
          "email" : "nanatec@gmail.com",
          "password": "$2a$10$IaQpkGxJpWxjyoi7wgp5ku.0.xlG8Gw.EmSjDhEA1O83Dxtkjogqa",
-          "role" : "admin"
+          "role" : "admin",
+          "Homepage":"/Admin.html"
 }
     db.collection('user', function(err, collection) {
  collection.insert(det, function(err, item) {
